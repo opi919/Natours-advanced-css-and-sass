@@ -1,0 +1,63 @@
+@import "../abstracts/variables";
+.row{
+    max-width: 105rem;
+    margin: 0 auto;
+
+    &:not(:last-child){
+        margin-bottom: $mg-btm;
+        @include respond(tab-port){
+            margin-bottom: 3rem;
+        }
+    }
+
+    @include respond(tab-port){
+        max-width: 50rem;
+    }
+ 
+    @include clearFix;
+
+     [class^="col-"] { //it will execute all the classes start with col-
+        // background-color: orangered;
+        float: left;
+
+        &:not(:last-child){
+            margin-right: $column-gap;
+            @include respond(tab-port){
+                margin-bottom: 5rem;
+            }
+        }
+
+        @include respond(tab-port){
+            width:100%  !important;
+        }
+     } 
+
+    .col-1-of-2{
+        width: calc((100% - #{$column-gap})/2);
+
+    }
+
+    .col-1-of-3{
+        width: calc((100% - #{$column-gap}*2)/3);
+
+    }
+
+    .col-2-of-3{
+        width: calc(((100% - #{$column-gap}*2)/3)*2 + #{$column-gap});
+    }
+
+    .col-1-of-4{
+        width: calc((100% - #{$column-gap}*3)/4);
+        
+    }
+
+    .col-2-of-4{
+        width: calc(((100% - #{$column-gap}*3)/4)*2 + #{$column-gap})
+    }
+
+    .col-3-of-4{
+        width: calc(((100% - #{$column-gap}*3)/4)*3 + #{$column-gap}*2)
+    }
+}
+
+
