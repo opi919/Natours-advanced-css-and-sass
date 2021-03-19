@@ -1,0 +1,94 @@
+@import "../abstracts/variables";
+
+.popup{
+    height:100vh;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    z-index:10;
+
+    opacity:0;
+    visibility: hidden;
+    transition: all 0.5s;
+
+ 
+    &-content{
+        @include absCenter;
+        width:75%;
+        height:45rem;
+        background-color: $color-white;
+        box-shadow:0 2rem 5rem rgba($color: #000000, $alpha: 0.2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transform:translate(-50%,-50%) scale(0);
+        transition: all .8s;
+    }
+
+    &-left{
+        width: 33.333333%;
+        display: table-cell;
+    }
+    &-right{
+        width: 66.666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+    &-img{
+        display: block;
+        width: 100%;
+    }
+    &-text{
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+
+        column-count: 2;
+        column-gap: 2rem;
+        column-rule: 1px solid $color-white;
+
+        -webkit-column-count: 2;
+        -webkit-column-gap: 2rem;
+        -webkit-column-rule: 1px solid $color-white;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    &-h3{
+        margin-top: -2rem;
+        margin-bottom: -0.5rem;
+    }
+
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &-content{
+        opacity: 1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    &-close{
+        &:link,&:visited{
+            color: $color-grey-dark;
+            position: absolute;
+            top:2rem;
+            right:2rem;
+            text-decoration:none;
+            font-size: 3rem;
+            display: inline-block;
+            transition:all .2s;
+        }
+        &:hover{
+            color: red;
+        }
+    }
+
+}

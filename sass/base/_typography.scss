@@ -1,0 +1,91 @@
+@import "../abstracts/variables";
+
+body{
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 2rem;
+
+    @include respond(tab-port){
+        padding: 0;
+    }
+}
+
+.text-box-heading-1{
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    .heading-1-main{
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3rem;
+    
+        animation-name: toLeft;
+        animation-duration: 2s ;
+        animation-delay: 1s;
+        /* animation-iteration-count: 3; */
+        /* animation-timing-function: ease-in-out; */
+
+        @include respond(phone){
+            font-size: 4rem;
+            letter-spacing: 1rem;
+        }
+    }
+
+    .heading-1-sub{
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.6rem;
+        animation: toRight 2s;
+        animation-delay: 1s;
+
+        @include respond(phone){
+            letter-spacing: 0.3rem;
+            font-weight: 100;
+        }
+    } 
+}
+
+.heading-2{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-weight: 500;
+    display: inline-block;
+    background-image: linear-gradient(to right,$color-light,$color-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all .2s;
+
+    @include respond(phone){
+        font-size: 0.5rem;
+    }
+    @include respond(tab-port){
+        font-size: 2rem;
+        margin-top:7rem;
+    }
+
+    &:hover{
+        transform: skewY(3deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, $alpha: .3);
+    }
+} 
+
+.heading-3{
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.paragraph{
+    font-size: 1.5rem;
+    &:not(:last-child){
+        margin-bottom: 4rem;
+    }
+}
